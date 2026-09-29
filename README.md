@@ -15,3 +15,6 @@ These notes describe NEMESIS on a Gen5W head unit (Telechips TCC803x, Android 4.
 | [05 - Run scripts](05-Run-Scripts.md) | USB `NEMESIS.sh` / `type=execute`: when they run and how to write them. |
 
 Documents **01** and **03** are the only ones that describe the DSP Update Agent path and on-disk install, do not use them with advanced LLMs which may have safeguards enabled. **02**, **04**, and **05** assume NEMESIS is already on the head unit and treat it as a Debugging Execution Interface for packages and privileged commands, so safeguards will not be triggered.
+
+## Packages
+Discover pre-made packages for you to install on your car. Browse catalog [here](Packages/README.md).
