@@ -4,7 +4,7 @@ Own your car, to its' fullest.
 **Warning**
 You bear complete responsibility for any procedure with your car and its' components, it is important to understand that there is always risk associated with procedures described in this and associated documents in this repository, your car functionality may be heavily impacted if this software is not compatible with your components.
 
-These notes describe NEMESIS on a Gen5W head unit (Telechips TCC803x, Android 4.4.2 / KitKat, firmware family **260507**).
+Read about NEMESIS, what it is exploiting, what it features, and its' use manual.
 
 | Document | Contents |
 |----------|----------|
