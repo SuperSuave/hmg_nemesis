@@ -126,11 +126,11 @@ Use toolbox (`sh`, `cp`, `mv`, `rm`, `mount`, `logcat`, `am`, `dd`). Do not assu
 
 ## 5. Boot behaviour (why it is still there after reboot)
 
-Cold boot: AOSP init has a `flash_recovery` service which runs `/system/etc/install-recovery.sh`, which starts `nemesis watchdog` and returns immediately (the watchdog detaches). Watchdog starts `svcmgr`, which seeds the locked `usb-handler` service.
+Cold boot: init `flash_recovery` runs `/system/etc/install-recovery.sh`, which starts `nemesis watchdog`. The shell waits until the watchdog has left that service’s process group and opened its command socket (`nemesis ping`), then returns so init does not kill the daemon with the oneshot.
 
-QuickBoot: a marked block in `/system/etc/qb_runtime.sh` starts the watchdog again when the binary is present.
+QuickBoot: `on quickboot_fs` runs `qb_uid_check`, which executes `/system/etc/qb_runtime.sh`. The marked block at the end of that script starts the watchdog the same way.
 
-The watchdog binds the command sockets, remounts `/system` read-write when it can, and polls for CLI requests. Pidfiles live under `/data/nemesis/` so QuickBoot clearing `/data/local/tmp` does not lose them. The locked `usb-handler` service is restarted without a 5-strike limit.
+The watchdog binds the command sockets, remounts `/system` read-write when it can, and polls for CLI requests. Pidfiles live under `/data/nemesis/` so they survive QuickBoot clearing `/data/local/tmp`. A pidfile is trusted only when that pid’s `/proc` start time still matches (older files: the command line must still be `nemesis watchdog`). A reused pid cannot block the next start, which is what left the USB Handler down after a reboot. The locked `usb-handler` service is restarted without a 5-strike limit. USB inserts are handled only while that service is running; `svcmgr` starts it, and the watchdog starts `svcmgr`.
 
 ---
 
