@@ -36,7 +36,7 @@ For your car to be compatible with NEMESIS, it has to:
 | Any car with no OTA updates capability | NEMESIS uses a flaw in OTA updates system to install itself, if your car does not have OTA updates, it does not have that flaw. |
 | Any Canadian HMG car | No Canadian HMG vehicle has support for OTA updates, despite Update OTA being shown for some in the Engineering Mode menu. |
 | Any car with S5W_L HU | Fundamentally different hardware and software architecture, does not run Android, NEMESIS cannot be ported in any shape or form there. |
-| Hyundai Elantra / Kia Forte / Hyundai Ioniq 6 | Despite having OTA updates, it uses a different scheme which does not have the required flaw for NEMESIS. |
+| Hyundai Elantra / Kia Forte / Hyundai Ioniq 6 | Despite having OTA updates support, these cars use different schemes which do not have the required flaw for NEMESIS. |
 
 ### **Will there be support for incompatible cars in the future?**
 
